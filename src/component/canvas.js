@@ -27,10 +27,15 @@ export const getGlobalCanvas = () => {
   globalCanvas = document.getElementById("signatureCanvas");
   globalCtx = globalCanvas.getContext("2d");
 
-  globalCanvas.addEventListener("mousedown", addDrawPoint);
-  globalCanvas.addEventListener("mousemove", drawLine);
-  globalCanvas.addEventListener("mouseup", stopDrawing);
-  globalCanvas.addEventListener("mouseout", stopDrawing);
+  globalCanvas.addEventListener("mousedown", addDrawPoint, false);
+  globalCanvas.addEventListener("mousemove", drawLine, false);
+  globalCanvas.addEventListener("mouseup", stopDrawing, false);
+  globalCanvas.addEventListener("mouseout", stopDrawing, false);
+
+  globalCanvas.addEventListener("touchstart", tAddDrawPoint, false);
+  globalCanvas.addEventListener("touchmove", tDrawLine, false);
+  globalCanvas.addEventListener("touchend", tStopDrawing, false);
+  globalCanvas.addEventListener("touchcancel", tStopDrawing, false);
 };
 
 const addDrawPoint = event => {
@@ -52,5 +57,31 @@ const drawLine = event => {
 };
 
 const stopDrawing = event => {
+  drawing = false;
+};
+
+const tAddDrawPoint = event => {
+  drawing = true;
+  console.log(event.targetTouches[0]);
+  x = event.targetTouches[0].pageX - globalCanvas.offsetLeft;
+  y = event.targetTouches[0].pageY - globalCanvas.offsetTop;
+};
+
+const tDrawLine = event => {
+  if (drawing) {
+    globalCtx.lineWidth = 3;
+    globalCtx.beginPath();
+    globalCtx.moveTo(x, y);
+    globalCtx.lineTo(
+      event.targetTouches[0].pageX - globalCanvas.offsetLeft,
+      event.targetTouches[0].pageY - globalCanvas.offsetTop
+    );
+    globalCtx.stroke();
+    x = event.targetTouches[0].pageX - globalCanvas.offsetLeft;
+    y = event.targetTouches[0].pageY - globalCanvas.offsetTop;
+  }
+};
+
+const tStopDrawing = event => {
   drawing = false;
 };

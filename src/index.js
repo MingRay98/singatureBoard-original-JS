@@ -33,8 +33,6 @@ const clickCreate = () => {
 
 const init = () => {
   app = document.getElementById("app");
-  console.log(app);
-  console.log(input);
   app.appendChild(input);
   cButton = document.getElementById("enter");
   cButton.addEventListener("click", () => clickCreate(), false);
