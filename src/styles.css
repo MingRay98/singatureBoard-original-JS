@@ -1,0 +1,27 @@
+body {
+  background-color: rgb(31, 28, 31);
+  font-family: Verdana;
+}
+
+button {
+  margin: 2%;
+  background-color: rgb(64, 95, 85);
+  border: none;
+  padding: 0.75rem;
+  color: white;
+  font-family: Verdana;
+  border-radius: 0.75rem;
+}
+
+canvas {
+  background: white;
+}
+
+input {
+  margin: 0 2% 0;
+}
+
+label {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
