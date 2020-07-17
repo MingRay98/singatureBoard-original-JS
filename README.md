@@ -6,7 +6,7 @@ You can update the size of canvas and download the image.
 ### Demo 
 
 link: https://ejp1p.csb.app/
-
+script: https://codesandbox.io/s/github/MingRay98/singatureBoard-original-JS
 
 ### How to download and pratice: 
 
