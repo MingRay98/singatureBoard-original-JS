@@ -1,7 +1,15 @@
-# singatureBoard-original-JS
-Created with CodeSandbox
+## About
 
----
+I tried to do a digital signature online project.  
+You can update the size of canvas and download the image.  
 
-## Demo : https://ejp1p.csb.app/
+### Demo 
+
+link: https://ejp1p.csb.app/
+
+
+### How to download and pratice: 
+
+Use demo link and you can pratice on line.
+
 
